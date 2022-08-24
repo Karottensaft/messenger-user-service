@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "Ou2R4egRLhmE6cWh5U41n7wEvkojs/5BBAJwA3xJt+g=",
+  "Source": "UserMessengerService.WebAPI",
+  "BasePath": "_content/UserMessengerService.WebAPI",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

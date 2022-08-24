@@ -1,0 +1,12 @@
+D:\Projects\UserMessengerService\UserMessengerService.Domain\bin\Debug\net6.0\UserMessengerService.Domain.deps.json
+D:\Projects\UserMessengerService\UserMessengerService.Domain\bin\Debug\net6.0\UserMessengerService.Domain.dll
+D:\Projects\UserMessengerService\UserMessengerService.Domain\bin\Debug\net6.0\UserMessengerService.Domain.pdb
+D:\Projects\UserMessengerService\UserMessengerService.Domain\obj\Debug\net6.0\UserMessengerService.Domain.csproj.AssemblyReference.cache
+D:\Projects\UserMessengerService\UserMessengerService.Domain\obj\Debug\net6.0\UserMessengerService.Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projects\UserMessengerService\UserMessengerService.Domain\obj\Debug\net6.0\UserMessengerService.Domain.AssemblyInfoInputs.cache
+D:\Projects\UserMessengerService\UserMessengerService.Domain\obj\Debug\net6.0\UserMessengerService.Domain.AssemblyInfo.cs
+D:\Projects\UserMessengerService\UserMessengerService.Domain\obj\Debug\net6.0\UserMessengerService.Domain.csproj.CoreCompileInputs.cache
+D:\Projects\UserMessengerService\UserMessengerService.Domain\obj\Debug\net6.0\UserMessengerService.Domain.dll
+D:\Projects\UserMessengerService\UserMessengerService.Domain\obj\Debug\net6.0\refint\UserMessengerService.Domain.dll
+D:\Projects\UserMessengerService\UserMessengerService.Domain\obj\Debug\net6.0\UserMessengerService.Domain.pdb
+D:\Projects\UserMessengerService\UserMessengerService.Domain\obj\Debug\net6.0\ref\UserMessengerService.Domain.dll

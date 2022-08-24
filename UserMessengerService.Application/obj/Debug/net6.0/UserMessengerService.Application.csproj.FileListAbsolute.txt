@@ -1,0 +1,17 @@
+D:\Projects\UserMessengerService\UserMessengerService.Application\bin\Debug\net6.0\UserMessengerService.Application.deps.json
+D:\Projects\UserMessengerService\UserMessengerService.Application\bin\Debug\net6.0\UserMessengerService.Application.dll
+D:\Projects\UserMessengerService\UserMessengerService.Application\bin\Debug\net6.0\UserMessengerService.Application.pdb
+D:\Projects\UserMessengerService\UserMessengerService.Application\bin\Debug\net6.0\UserMessengerService.Domain.dll
+D:\Projects\UserMessengerService\UserMessengerService.Application\bin\Debug\net6.0\UserMessengerService.Infrastructure.dll
+D:\Projects\UserMessengerService\UserMessengerService.Application\bin\Debug\net6.0\UserMessengerService.Domain.pdb
+D:\Projects\UserMessengerService\UserMessengerService.Application\bin\Debug\net6.0\UserMessengerService.Infrastructure.pdb
+D:\Projects\UserMessengerService\UserMessengerService.Application\obj\Debug\net6.0\UserMessengerService.Application.csproj.AssemblyReference.cache
+D:\Projects\UserMessengerService\UserMessengerService.Application\obj\Debug\net6.0\UserMessengerService.Application.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projects\UserMessengerService\UserMessengerService.Application\obj\Debug\net6.0\UserMessengerService.Application.AssemblyInfoInputs.cache
+D:\Projects\UserMessengerService\UserMessengerService.Application\obj\Debug\net6.0\UserMessengerService.Application.AssemblyInfo.cs
+D:\Projects\UserMessengerService\UserMessengerService.Application\obj\Debug\net6.0\UserMessengerService.Application.csproj.CoreCompileInputs.cache
+D:\Projects\UserMessengerService\UserMessengerService.Application\obj\Debug\net6.0\UserMessengerService.Application.csproj.CopyComplete
+D:\Projects\UserMessengerService\UserMessengerService.Application\obj\Debug\net6.0\UserMessengerService.Application.dll
+D:\Projects\UserMessengerService\UserMessengerService.Application\obj\Debug\net6.0\refint\UserMessengerService.Application.dll
+D:\Projects\UserMessengerService\UserMessengerService.Application\obj\Debug\net6.0\UserMessengerService.Application.pdb
+D:\Projects\UserMessengerService\UserMessengerService.Application\obj\Debug\net6.0\ref\UserMessengerService.Application.dll
