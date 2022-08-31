@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using UserMessengerService.Application.Services;
 using UserMessengerService.Domain.Dto;
 
@@ -14,6 +16,7 @@ namespace UserMessengerService.WebAPI.Controllers
             _userService = userService;
         }
 
+        [Authorize(AuthenticationSchemes = "TokenKey")]
         [HttpGet("user/all")]
         public async Task<IEnumerable<InformationDto>> GetListOfUsers()
         {
