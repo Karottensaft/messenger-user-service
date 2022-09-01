@@ -1,39 +1,39 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using UserMessengerService.Domain.Models;
 using UserMessengerService.Infrastructure.Data;
 
-namespace UserMessengerService.Infrastructure.Repositories
+namespace UserMessengerService.Infrastructure.Repositories;
+
+public class UnitOfWork : IDisposable
 {
-    public class UnitOfWork : IDisposable
+    private readonly UserDbContext _context;
+
+    private bool _disposed;
+
+    public UnitOfWork(DbContextOptions<UserDbContext> options)
     {
-        private readonly UserDbContext _context;
+        _context = new UserDbContext(options);
+        UserRepository = new UserRepository(_context);
+    }
 
-        private bool _disposed;
+    public UserRepository UserRepository { get; }
 
-        public UnitOfWork(DbContextOptions<UserDbContext> options)
-        {
-            _context = new UserDbContext(options);
-            UserRepository = new UserRepository(_context);
-        }
+    public void Dispose()
+    {
+        Dispose(true);
+        GC.SuppressFinalize(this);
+    }
 
-        public UserRepository UserRepository { get; }
+    public async Task SaveAsync()
+    {
+        await _context.SaveChangesAsync();
+    }
 
-        public void Dispose()
-        {
-            Dispose(true);
-            GC.SuppressFinalize(this);
-        }
-
-        public async Task SaveAsync()
-        {
-            await _context.SaveChangesAsync();
-        }
-
-        protected virtual void Dispose(bool disposing)
-        {
-            if (!_disposed)
-                if (disposing)
-                    _context.Dispose();
-            _disposed = true;
-        }
+    protected virtual void Dispose(bool disposing)
+    {
+        if (!_disposed)
+            if (disposing)
+                _context.Dispose();
+        _disposed = true;
     }
 }

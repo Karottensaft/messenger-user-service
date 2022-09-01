@@ -10,6 +10,7 @@ using UserMessengerService.Infrastructure.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
+
 builder.Services.AddSwaggerGen(opt =>
 {
     opt.SwaggerDoc("v1", new OpenApiInfo { Title = "MyAPI", Version = "v1" });
@@ -39,7 +40,7 @@ builder.Services.AddSwaggerGen(opt =>
 });
 
 builder.Services
-    .AddAuthentication( options =>
+    .AddAuthentication(options =>
     {
         options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
         options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -71,9 +72,13 @@ builder.Services.AddDbContext<UserDbContext>(options =>
     options.UseNpgsql(builder.Configuration
         .GetConnectionString("DefaultConnection")));
 
+builder.Services.AddHttpContextAccessor();
+
 builder.Services.AddScoped<IUserRepository<UserModel>, UserRepository>();
 builder.Services.AddScoped<UnitOfWork>();
-builder.Services.AddScoped<UserService>();
+builder.Services.AddScoped<IUserProviderMiddleware, UserProviderMiddleware>();
+builder.Services.AddScoped<IUserService, UserService>();
+
 
 var app = builder.Build();
 
@@ -86,7 +91,6 @@ if (app.Environment.IsDevelopment())
 }
 
 
-
 //app.UseHttpsRedirection();
 
 
@@ -94,7 +98,9 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
+
 
 app.MapControllers();
 

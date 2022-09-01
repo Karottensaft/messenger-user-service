@@ -1,61 +1,64 @@
-﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using UserMessengerService.Application.Services;
 using UserMessengerService.Domain.Dto;
 
-namespace UserMessengerService.WebAPI.Controllers
+namespace UserMessengerService.WebAPI.Controllers;
+
+[ApiController]
+public class UserController : ControllerBase
 {
-    [ApiController]
-    public class UserController : ControllerBase
+    private readonly IUserService _userService;
+
+    public UserController(IUserService userService)
     {
-        private readonly UserService _userService;
+        _userService = userService;
+    }
 
-        public UserController(UserService userService)
-        {
-            _userService = userService;
-        }
+    [Authorize(AuthenticationSchemes = "TokenKey", Roles = "admin")]
+    [HttpGet("user/all")]
+    public async Task<IEnumerable<InformationDto>> GetListOfUsers()
+    {
+        var users = await _userService.GerListOfUsers();
+        return users;
+    }
 
-        [Authorize(AuthenticationSchemes = "TokenKey")]
-        [HttpGet("user/all")]
-        public async Task<IEnumerable<InformationDto>> GetListOfUsers()
-        {
-            var users = await _userService.GerListOfUsers();
-            return users;
-        }
+    [Authorize(AuthenticationSchemes = "TokenKey")]
+    [HttpGet("user/me")]
+    public async Task<InformationDto> GetCurrentUser()
+    {
+        var user = await _userService.GetCurrentUserByUsername();
+        return user;
+    }
 
-        [HttpGet("user/me")]
-        public async Task<InformationDto> GetCurrentUser(int id)
-        {
-            var user = await _userService.GetCurrentUser(id);
-            return user;
-        }
+    [Authorize(AuthenticationSchemes = "TokenKey")]
+    [HttpGet("user/{username}")]
+    public async Task<InformationDto> GetUser(string username)
+    {
+        var user = await _userService.GetUserByUsername(username);
+        return user;
+    }
 
-        [HttpGet("user/{username}")]
-        public async Task<InformationDto> GetUser(string username)
-        {
-            var user = await _userService.GetUserByUsername(username);
-            return user;
-        }
+    [Authorize(AuthenticationSchemes = "TokenKey")]
+    [HttpPost("user/registration")]
+    public async Task<RegistrationDto> PostUser(RegistrationDto userRegistrationData)
+    {
+        await _userService.CreateUser(userRegistrationData);
+        return userRegistrationData;
+    }
 
-        [HttpPost("user/registration")]
-        public async Task<RegistrationDto> PostUser(RegistrationDto userRegistrationData)
-        {
-            await _userService.CreateUser(userRegistrationData);
-            return userRegistrationData;
-        }
+    [Authorize(AuthenticationSchemes = "TokenKey")]
+    [HttpPut("user/user-settings")]
+    public async Task<ChangingDto> PutUser(ChangingDto userChangingData)
+    {
+        await _userService.UpdateUser(userChangingData);
+        return userChangingData;
+    }
 
-        [HttpPut("user/user-settings")]
-        public async Task<ChangingDto> PutUser(ChangingDto userChangingData, int id)
-        {
-            await _userService.UpdateUser(userChangingData, id);
-            return userChangingData;
-        }
-
-        [HttpDelete("user/delete")]
-        public async Task DeleteUser(int id)
-        {
-            await _userService.DeleteUser(id);
-        }
+    [Authorize(AuthenticationSchemes = "TokenKey", Roles = "admin")]
+    [HttpDelete("user/delete")]
+    public async Task DeleteUser(string username)
+    {
+        await _userService.DeleteUser(username);
     }
 }

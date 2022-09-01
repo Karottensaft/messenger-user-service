@@ -2,29 +2,28 @@
 using UserMessengerService.Domain.Dto;
 using UserMessengerService.Domain.Models;
 
-namespace UserMessengerService.Application.Middlewares
+namespace UserMessengerService.Application.Middlewares;
+
+public class UserRegistrationProfile : Profile
 {
-    public class UserRegistrationProfile : Profile
+    public UserRegistrationProfile()
     {
-        public UserRegistrationProfile()
-        {
-            CreateMap<RegistrationDto, UserModel>();
-        }
+        CreateMap<RegistrationDto, UserModel>();
     }
+}
 
-    public class UserInformationProfile : Profile
+public class UserInformationProfile : Profile
+{
+    public UserInformationProfile()
     {
-        public UserInformationProfile()
-        {
-            CreateMap<UserModel, InformationDto>();
-        }
+        CreateMap<UserModel, InformationDto>();
     }
+}
 
-    public class UserChangeProfile : Profile
+public class UserChangeProfile : Profile
+{
+    public UserChangeProfile()
     {
-        public UserChangeProfile()
-        {
-            CreateMap<ChangingDto, UserModel>();
-        }
+        CreateMap<ChangingDto, UserModel>();
     }
 }
